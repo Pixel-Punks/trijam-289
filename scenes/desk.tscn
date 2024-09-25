@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddvyx1kpounl7"]
+
+[ext_resource type="PackedScene" uid="uid://ddf0vpt3fvpbh" path="res://scenes/card.tscn" id="1_rcnfh"]
+
+[node name="Desk" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(626, 452)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-320, 197, 306, 195, 408, -101, -476, -98)
+
+[node name="Card" parent="." instance=ExtResource("1_rcnfh")]
+position = Vector2(462, 564)
+
+[node name="Card2" parent="." instance=ExtResource("1_rcnfh")]
+position = Vector2(589, 570)
+
+[node name="Card3" parent="." instance=ExtResource("1_rcnfh")]
+position = Vector2(724, 566)

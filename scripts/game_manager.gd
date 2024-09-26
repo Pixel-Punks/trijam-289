@@ -6,6 +6,7 @@ var planets = []
 var score: int = 0
 var alien: Alien
 var current_traveler: int = 0
+var dialogManager = DialogManager.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,5 +45,6 @@ func compute_score(planet: Planet):
 	else:
 		score += 50
 	
-	current_traveler += 1
-	alien = aliens[current_traveler]
+	if (!aliens.is_empty()):
+		current_traveler += 1
+		alien = aliens[current_traveler]

@@ -29,6 +29,8 @@ func _ready():
 
 func compute_score(planet: Planet):
 	var bad_conditions = 0
+	planets.append(Planet.new())
+	var died = false
 	if (alien.is_acid_sensitive):
 		if (planet.acid_water):
 			bad_conditions+=1
@@ -56,13 +58,10 @@ func compute_score(planet: Planet):
 		score += 50
 		print_debug("Alien survived")
 	
-<<<<<<< Updated upstream
 	if (!aliens.is_empty()):
 		current_traveler += 1
 		alien = aliens[current_traveler]
-=======
-	current_traveler += 1
-	alien = aliens[current_traveler]
+
 	print_debug("Cycled to next alien")
 
 func _physics_process(delta: float) -> void:
@@ -79,4 +78,3 @@ func move_card_on_top(current_z_index:int) -> void:
 		if card.z_index > current_z_index:
 			card.z_index -= 1
 	current_card.z_index = cards.size() - 1
->>>>>>> Stashed changes

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddf0vpt3fvpbh"]
+[gd_scene load_steps=6 format=3 uid="uid://ddf0vpt3fvpbh"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_eapk6"]
 [ext_resource type="Texture2D" uid="uid://beaggrtrstm27" path="res://assets/cards/desk/card_placeholder.png" id="1_k3bss"]
@@ -7,7 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cl1um"]
 size = Vector2(96, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0d41"]
+size = Vector2(96, 130)
+
 [node name="Card" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_eapk6")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -26,3 +30,7 @@ texture = ExtResource("1_k3bss")
 position = Vector2(2.08616e-07, -1.19209e-06)
 scale = Vector2(0.420601, 0.608295)
 texture = ExtResource("3_yf8uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_d0d41")

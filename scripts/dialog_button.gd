@@ -4,14 +4,19 @@ class_name DialogButton extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	
+
+func add_dialogs(dialogs):
 	var i = 0
 	for dialog in dialogs:
 		var button = Button.new()
-		button.text = dialog
+		button.text = str(i+1) + ". " + dialog
 		button.position += Vector2(0, 40 * i)
+		button.pressed.connect(Callable(self, "_on_button_pressed").bind(button))
 		add_child(button)
 		i += 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+func _on_button_pressed(b: Button):
+	GManager.ask_question(int(b.text[0]))

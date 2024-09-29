@@ -11,6 +11,7 @@ var score: int = 0
 var alien: Alien
 var current_traveler: int = 0
 var dialogManager = DialogManager.new()
+var alien_text: Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +31,8 @@ func _ready():
 func compute_score(planet: Planet):
 	var bad_conditions = 0
 	planets.append(Planet.new())
+	alien = aliens[current_traveler]
+	
 	var died = false
 	if (alien.is_acid_sensitive):
 		if (planet.acid_water):
@@ -63,6 +66,15 @@ func compute_score(planet: Planet):
 		alien = aliens[current_traveler]
 
 	print_debug("Cycled to next alien")
+
+
+func ask_question(id: int):
+	if (id == 1):
+		if (alien.is_climate_sensitive):
+			alien_text.text = "I'm not climate sensitive"
+		else:
+			alien_text.text = "I support " + alien.climate + " climate"
+
 
 func _physics_process(delta: float) -> void:
 	highest_grabbable_z_index = 0

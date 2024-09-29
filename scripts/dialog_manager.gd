@@ -9,7 +9,6 @@ var dialogs: Array[String] = [
 	"Which climate do you prefer ?",
 	"Which atmosphere do you prefer ?",
 	"Do you need food ?",
-	"Are you interested in eternal war ?"
 ]
 
 # Called when the node enters the scene tree for the first time.

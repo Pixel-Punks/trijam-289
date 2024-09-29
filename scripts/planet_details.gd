@@ -5,13 +5,14 @@ class_name PlanetDetails extends Node2D
 @onready var radiation_label : Label = %RadiationLabel
 @onready var acid_water_label : Label = %AcidWaterLabel
 @onready var eternal_war_label : Label = %EternalWarLabel
+@onready var holo_up_sound : AudioStreamPlayer = %HoloUpStreamPlayer
 @onready var food_label : Label = %FoodLabel
 @onready var air_label : Label = %AirLabel
 var planet : Planet
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visibility_changed.connect(on_visibility_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,3 +45,7 @@ func _process(delta):
 	food_label.text += "food on the planet"
 	
 	air_label.text = "Air is " + planet.air
+
+func on_visibility_changed():
+	if visible:
+		holo_up_sound.play()

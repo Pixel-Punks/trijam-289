@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bontd50tna8b0"]
+[gd_scene load_steps=12 format=3 uid="uid://bontd50tna8b0"]
 
 [ext_resource type="Script" path="res://scripts/desk.gd" id="1_5r4sk"]
 [ext_resource type="Texture2D" uid="uid://dmplwmivhdgfc" path="res://assets/background/desk.png" id="2_3eq5r"]
 [ext_resource type="Texture2D" uid="uid://djbdkygmt2gx1" path="res://assets/aliens/sunflower.png" id="3_o7c3y"]
 [ext_resource type="PackedScene" uid="uid://dq1xey4c2wn0n" path="res://scenes/planet_details.tscn" id="4_27lk2"]
+[ext_resource type="Texture2D" uid="uid://dmdai828esh05" path="res://assets/aliens/rododindron.png" id="4_bh6ph"]
 [ext_resource type="AudioStream" uid="uid://ixotw2ixqmc4" path="res://assets/sounds/others/rocket-launch.wav" id="5_g2sgk"]
+[ext_resource type="Texture2D" uid="uid://cxgknqdqpl62o" path="res://assets/aliens/tulip.png" id="5_s0ynp"]
 [ext_resource type="AudioStream" uid="uid://bl5wt4eshpfa7" path="res://assets/sounds/others/95773__velvorn__sas_ouverture.wav" id="6_a2yw8"]
 [ext_resource type="AudioStream" uid="uid://sat7duymtrrd" path="res://assets/sounds/others/95772__velvorn__sas_fermeture.wav" id="7_q0gbk"]
 
@@ -44,10 +46,26 @@ z_index = 1
 position = Vector2(191.75, 128)
 shape = SubResource("RectangleShape2D_b37uv")
 
-[node name="AlienSprite" type="Sprite2D" parent="AlienArea"]
+[node name="AlienSprite1" type="Sprite2D" parent="AlienArea"]
+unique_name_in_owner = true
+visible = false
 position = Vector2(152, 264)
 scale = Vector2(0.480469, 0.480469)
 texture = ExtResource("3_o7c3y")
+
+[node name="AlienSprite2" type="Sprite2D" parent="AlienArea"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(152, 264)
+scale = Vector2(0.480469, 0.480469)
+texture = ExtResource("4_bh6ph")
+
+[node name="AlienSprite3" type="Sprite2D" parent="AlienArea"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(152, 264)
+scale = Vector2(0.480469, 0.480469)
+texture = ExtResource("5_s0ynp")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 freeze = true
@@ -72,14 +90,17 @@ position = Vector2(416, 24)
 [node name="RocketLaunchStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_g2sgk")
+volume_db = -7.0
 
 [node name="DoorOpenStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_a2yw8")
+volume_db = -16.0
 
 [node name="DoorCloseStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_q0gbk")
+volume_db = -16.0
 
 [node name="RocketLaunchEdge" type="Node2D" parent="."]
 unique_name_in_owner = true

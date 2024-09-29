@@ -12,9 +12,11 @@ extends Node2D
 @onready var rocket_launch_sound : AudioStreamPlayer = %RocketLaunchStreamPlayer
 @onready var door_open_sound : AudioStreamPlayer = %DoorOpenStreamPlayer
 @onready var door_close_sound : AudioStreamPlayer = %DoorCloseStreamPlayer
+@onready var alien_sprites : Array[Sprite2D] = [%AlienSprite1, %AlienSprite2, %AlienSprite3]
 
 @export var alien_speed : float = 100
 
+var rng = RandomNumberGenerator.new()
 const card_offset = 10
 var rocket_launch_played : bool = false
 var card_in_area : Card = null
@@ -39,6 +41,7 @@ func _ready() -> void:
 		card.position = Vector2(first_card_x+i*card_offset, card_y)
 		card.z_index = i
 		i = i + 1
+	swap_alien_sprite()
 
 func get_collision_rect(collision : CollisionShape2D) -> Rect2:
 	return collision.shape.get_rect()
@@ -103,6 +106,13 @@ func handle_alien_cycling(delta : float) -> void :
 		exit_room = false
 		enter_room = true
 		rocket_launch_played = false
-		door_open_sound.play()
-		door_close_sound.play()
 		alien_area.position[0] = min_pos[0]
+		swap_alien_sprite()
+		
+func swap_alien_sprite():
+	var visible_alien : int = rng.randi_range(0,2)
+	for i in range(3):
+		alien_sprites[i].visible = false
+	alien_sprites[visible_alien].visible = true
+	door_open_sound.play()
+	door_close_sound.play()

@@ -8,7 +8,9 @@ class_name PlanetDetails extends Node2D
 @onready var holo_up_sound : AudioStreamPlayer = %HoloUpStreamPlayer
 @onready var food_label : Label = %FoodLabel
 @onready var air_label : Label = %AirLabel
+@onready var planet_sprites : Array[Sprite2D] = [%PlanetSprite1, %PlanetSprite2]
 var planet : Planet
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,5 +49,11 @@ func _process(delta):
 	air_label.text = "Air is " + planet.air
 
 func on_visibility_changed():
+	if rng.randi() % 2 == 0:
+		planet_sprites[0].visible = true
+		planet_sprites[1].visible = false
+	else:
+		planet_sprites[0].visible = false
+		planet_sprites[1].visible = true
 	if visible:
 		holo_up_sound.play()

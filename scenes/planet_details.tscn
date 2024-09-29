@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq1xey4c2wn0n"]
+[gd_scene load_steps=6 format=3 uid="uid://dq1xey4c2wn0n"]
 
 [ext_resource type="Texture2D" uid="uid://cqjqo0strcyy8" path="res://assets/flyers/flyer_zoom_1.png" id="1_lwe1a"]
 [ext_resource type="Script" path="res://scripts/planet_details.gd" id="1_vds5a"]
 [ext_resource type="Texture2D" uid="uid://svyiaiu4dbnj" path="res://assets/flyers/flyer_clean.png" id="3_q4yay"]
 [ext_resource type="AudioStream" uid="uid://nsjhdg117nle" path="res://assets/sounds/others/hologram-up.wav" id="4_i80j7"]
+[ext_resource type="Texture2D" uid="uid://y5kwqwete7j" path="res://assets/flyers/flyer_zoom_2.png" id="5_pb6hh"]
 
 [node name="PlanetDetails" type="Node2D"]
 position = Vector2(0, 1)
@@ -21,10 +22,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Air"
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="PlanetSprite1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
 z_index = 1
-position = Vector2(89.9999, 95.9999)
-scale = Vector2(0.167969, 0.167969)
+position = Vector2(123.887, 87.8451)
+scale = Vector2(0.180348, 0.177734)
 texture = ExtResource("1_lwe1a")
 
 [node name="ClimateLabel" type="Label" parent="."]
@@ -101,3 +104,11 @@ metadata/_edit_use_anchors_ = true
 [node name="HoloUpStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_i80j7")
+
+[node name="PlanetSprite2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(123.887, 87.8451)
+scale = Vector2(0.180348, 0.177734)
+texture = ExtResource("5_pb6hh")

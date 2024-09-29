@@ -21,6 +21,7 @@ offset_left = 373.0
 offset_top = 74.0
 offset_right = 544.0
 offset_bottom = 239.0
+metadata/_edit_use_anchors_ = true
 
 [node name="DialogButton" type="Node2D" parent="."]
 position = Vector2(708, 18)

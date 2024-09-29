@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/desk.gd" id="1_5r4sk"]
 [ext_resource type="Texture2D" uid="uid://dmplwmivhdgfc" path="res://assets/background/desk.png" id="2_3eq5r"]
-[ext_resource type="Texture2D" uid="uid://djbdkygmt2gx1" path="res://assets/aliens/sunflower.png" id="3_cxyl0"]
+[ext_resource type="Texture2D" uid="uid://djbdkygmt2gx1" path="res://assets/aliens/sunflower.png" id="3_o7c3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5w6h"]
 size = Vector2(1152, 264)
@@ -43,7 +43,7 @@ shape = SubResource("RectangleShape2D_b37uv")
 [node name="AlienSprite" type="Sprite2D" parent="AlienArea"]
 position = Vector2(152, 264)
 scale = Vector2(0.480469, 0.480469)
-texture = ExtResource("3_cxyl0")
+texture = ExtResource("3_o7c3y")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 freeze = true

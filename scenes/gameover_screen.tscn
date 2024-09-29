@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dis0i5ug1cyqs"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_hccig"]
+[ext_resource type="Texture2D" uid="uid://dl1takffiemlt" path="res://assets/background/game_over.png" id="2_pex6d"]
+[ext_resource type="AudioStream" uid="uid://c35gwwgul5aq1" path="res://assets/sounds/others/loose.wav" id="3_jfcq3"]
+[ext_resource type="AudioStream" uid="uid://d0bhahbupfbt8" path="res://assets/sounds/others/win.wav" id="4_wxxe5"]
+
+[node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_hccig")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_pex6d")
+
+[node name="START" type="Button" parent="."]
+offset_left = 690.0
+offset_top = 417.0
+offset_right = 1047.0
+offset_bottom = 516.0
+text = "RESTART"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 690.0
+offset_top = 154.0
+offset_right = 837.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 50
+text = "Score:"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 756.0
+offset_top = 238.0
+offset_right = 968.0
+offset_bottom = 307.0
+theme_override_font_sizes/font_size = 50
+text = "YOU ARE"
+
+[node name="lblfired" type="Label" parent="."]
+offset_left = 719.0
+offset_top = 307.0
+offset_right = 1016.0
+offset_bottom = 403.0
+theme_override_font_sizes/font_size = 70
+text = "XXX"
+horizontal_alignment = 1
+
+[node name="lblscore" type="Label" parent="."]
+offset_left = 903.0
+offset_top = 154.0
+offset_right = 1046.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 50
+text = "XXXX"
+
+[node name="loose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jfcq3")
+volume_db = -6.5
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wxxe5")
+volume_db = -6.5
+
+[connection signal="pressed" from="START" to="." method="_on_start_pressed"]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://bontd50tna8b0"]
+
+[ext_resource type="Script" path="res://scripts/desk.gd" id="1_5r4sk"]
+[ext_resource type="Texture2D" uid="uid://dmplwmivhdgfc" path="res://assets/background/desk.png" id="2_3eq5r"]
+[ext_resource type="Texture2D" uid="uid://djbdkygmt2gx1" path="res://assets/aliens/sunflower.png" id="3_o7c3y"]
+[ext_resource type="PackedScene" uid="uid://dq1xey4c2wn0n" path="res://scenes/planet_details.tscn" id="4_27lk2"]
+[ext_resource type="Texture2D" uid="uid://dmdai828esh05" path="res://assets/aliens/rododindron.png" id="4_bh6ph"]
+[ext_resource type="AudioStream" uid="uid://ixotw2ixqmc4" path="res://assets/sounds/others/rocket-launch.wav" id="5_g2sgk"]
+[ext_resource type="Texture2D" uid="uid://cxgknqdqpl62o" path="res://assets/aliens/tulip.png" id="5_s0ynp"]
+[ext_resource type="AudioStream" uid="uid://bl5wt4eshpfa7" path="res://assets/sounds/others/95773__velvorn__sas_ouverture.wav" id="6_a2yw8"]
+[ext_resource type="AudioStream" uid="uid://sat7duymtrrd" path="res://assets/sounds/others/95772__velvorn__sas_fermeture.wav" id="7_q0gbk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5w6h"]
+size = Vector2(1152, 264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b37uv"]
+size = Vector2(384.5, 256)
+
+[node name="Desk" type="Node2D"]
+script = ExtResource("1_5r4sk")
+
+[node name="DeskArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(626, 452)
+collision_mask = 3
+
+[node name="DeskPolygon" type="CollisionShape2D" parent="DeskArea"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(-50, 64)
+shape = SubResource("RectangleShape2D_m5w6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="DeskArea"]
+position = Vector2(-44.6666, -154.75)
+scale = Vector2(0.686574, 0.686574)
+texture = ExtResource("2_3eq5r")
+
+[node name="AlienArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 3
+
+[node name="AlienPolygon" type="CollisionShape2D" parent="AlienArea"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(191.75, 128)
+shape = SubResource("RectangleShape2D_b37uv")
+
+[node name="AlienSprite1" type="Sprite2D" parent="AlienArea"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(152, 264)
+scale = Vector2(0.480469, 0.480469)
+texture = ExtResource("3_o7c3y")
+
+[node name="AlienSprite2" type="Sprite2D" parent="AlienArea"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(152, 264)
+scale = Vector2(0.480469, 0.480469)
+texture = ExtResource("4_bh6ph")
+
+[node name="AlienSprite3" type="Sprite2D" parent="AlienArea"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(152, 264)
+scale = Vector2(0.480469, 0.480469)
+texture = ExtResource("5_s0ynp")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+freeze = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(-64, -64, -64, 704, 0, 704, 0, 0, 1152, 0, 1152, 648, 0, 648, 0, 704, 1216, 704, 1216, -64)
+
+[node name="ScreenEdgeRight" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1536, 0)
+
+[node name="ScreenEdgeLeft" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-384, 8)
+
+[node name="PlanetDetails" parent="." instance=ExtResource("4_27lk2")]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+position = Vector2(416, 24)
+
+[node name="RocketLaunchStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_g2sgk")
+volume_db = -7.0
+
+[node name="DoorOpenStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_a2yw8")
+volume_db = -16.0
+
+[node name="DoorCloseStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_q0gbk")
+volume_db = -16.0
+
+[node name="RocketLaunchEdge" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1280, 0)
+
+[connection signal="body_entered" from="DeskArea" to="." method="_on_desk_area_body_entered"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv3f5o8f2w6ca"]
+
+[ext_resource type="Texture2D" uid="uid://m27oecnlhvck" path="res://assets/background/bg.png" id="1_8vwv2"]
+[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_bwb6q"]
+[ext_resource type="Texture2D" uid="uid://bt7whht4yxoa6" path="res://assets/fonts/the_good_space_trans.png" id="2_84rtu"]
+[ext_resource type="AudioStream" uid="uid://c4fqaaxbqtn4n" path="res://assets/music/Trijam_289_OST_double_ration_de_spacing.wav" id="3_tsu5a"]
+[ext_resource type="Texture2D" uid="uid://b5ppswww0u3c2" path="res://assets/logo/Logo_256.png" id="5_bcupr"]
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_bwb6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_8vwv2")
+
+[node name="TheGoodSpaceTrans" type="Sprite2D" parent="."]
+position = Vector2(816, 310)
+scale = Vector2(0.672222, 0.672222)
+texture = ExtResource("2_84rtu")
+
+[node name="START" type="Button" parent="."]
+offset_left = 157.0
+offset_top = 323.0
+offset_right = 514.0
+offset_bottom = 422.0
+text = "START"
+
+[node name="TUTORIAL" type="Button" parent="."]
+offset_left = 157.0
+offset_top = 186.0
+offset_right = 514.0
+offset_bottom = 285.0
+text = "TUTORIAL"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tsu5a")
+autoplay = true
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(32, 592)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_bcupr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 624.0
+offset_right = 208.0
+offset_bottom = 664.0
+text = "Created by Pixel Punks"
+
+[connection signal="pressed" from="START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="TUTORIAL" to="." method="_on_tutorial_pressed"]

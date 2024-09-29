@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="trijam-289"
+config/name="The Good Space"
 run/main_scene="res://scenes/game_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.203922, 0.0235294, 0.309804, 1)
+boot_splash/image="res://assets/logo/Logo_text.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -35,3 +38,8 @@ right_click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(172, 3),"global_position":Vector2(181, 49),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/screen_space_aa=1

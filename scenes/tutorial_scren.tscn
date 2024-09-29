@@ -33,9 +33,10 @@ offset_top = 115.0
 offset_right = 1036.0
 offset_bottom = 346.0
 text = "Welcome to The Good Space!
-You are an inter-galactic travel agent that is tasked to send aliens to their dream vacation spot. you will Be able to select questions to ask them here to know their preferences!
-If you send an alien to the wrong planet they will die, if too many aliens die, you will be fired! So pay attention to what they say!
-But beware, you are limited to only 4 questions !!!"
+
+You are an intergalactic travel agent tasked with sending aliens to their dream vacation spots. You will be able to choose questions here to learn their preferences!
+If you send an alien to the wrong planet, they will die. If too many aliens die, you will be fired! So pay close attention to what they say!
+But beware—you are limited to only 4 questions!"
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 

@@ -12,6 +12,7 @@ var alien: Alien
 var current_traveler: int = 0
 var dialogManager = DialogManager.new()
 var alien_text: Label
+var question_left = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -70,10 +71,44 @@ func compute_score(planet: Planet):
 
 func ask_question(id: int):
 	if (id == 1):
-		if (alien.is_climate_sensitive):
+		if (!alien.is_climate_sensitive):
 			alien_text.text = "I'm not climate sensitive"
 		else:
 			alien_text.text = "I support " + alien.climate + " climate"
+	if (id == 2):
+		if (!alien.is_atmosphere_sensitive):
+			alien_text.text = "I'm not atmosphere senitive"
+		else:
+			alien_text.text = "I support " + alien.atmosphere + " atmosphere"
+	if (id == 3):
+		if (!alien.is_radiation_sensitive):
+			alien_text.text = "I don't support radiation"
+		else:
+			alien_text.text = "I support radiation"
+	if (id == 4):
+		if (!alien.is_acid_sensitive):
+			alien_text.text = "I resist to acid"
+		else:
+			alien_text.text = "I don't resist to acid"
+	if (id == 5):
+		if (!alien.is_air_sensitive):
+			alien_text.text = "I'm not air sensitive"
+		else:
+			alien_text.text = "I support " + alien.air + " air"
+	if (id == 6):
+		if (!alien.food):
+			alien_text.text = "I don't need food"
+		else:
+			alien_text.text = "I need food to survive"
+	if (id == 7):
+		alien_text.text = "I prefer " + alien.climate + " climate"
+	if (id == 8):
+		alien_text.text = "I prefer " + alien.atmosphere + " atmosphere"
+	if (id == 9):
+		alien_text.text = "I prefer " + alien.air + " air"
+	 
+	question_left -= 1
+	return question_left 
 
 
 func _physics_process(delta: float) -> void:

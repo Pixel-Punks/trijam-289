@@ -6,9 +6,10 @@ var dialogs: Array[String] = [
 	"Are you radiation sensitive ?",
 	"Are you acid sensitive ?",
 	"Are you air sensitive ?",
+	"Do you need food ?",
 	"Which climate do you prefer ?",
 	"Which atmosphere do you prefer ?",
-	"Do you need food ?",
+	"Which air do you prefer ?"
 ]
 
 # Called when the node enters the scene tree for the first time.

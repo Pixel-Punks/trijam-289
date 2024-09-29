@@ -38,3 +38,4 @@ stream = ExtResource("3_tsu5a")
 autoplay = true
 
 [connection signal="pressed" from="START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="TUTORIAL" to="." method="_on_tutorial_pressed"]

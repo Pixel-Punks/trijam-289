@@ -18,6 +18,7 @@ var question_left = 4
 var question_buttons: Array[Button]
 var audio: AudioStreamPlayer
 var aliens_that_died = 0
+var is_game_over = false
 var blblbls = [
 	preload("res://assets/sounds/blblbl/blblbl1.wav"),
 	preload("res://assets/sounds/blblbl/blblbl2.wav"),
@@ -127,9 +128,12 @@ func compute_score(planet: Planet):
 		if (planet.air == alien.air):
 			score += 25
 			
-	if (!aliens.is_empty()):
+	if (current_traveler < 9):
 		current_traveler += 1
 		alien = aliens[current_traveler]
+	else:
+		is_game_over = true
+		get_tree().change_scene_to_file("res://scenes/gameover_screen.tscn")
 	
 	alien_text.text = "Hello"
 	question_left = 4
@@ -184,6 +188,8 @@ func ask_question(id: int):
 
 func _physics_process(delta: float) -> void:
 	highest_grabbable_z_index = 0
+	if (is_game_over):
+		return
 	for card in GManager.cards:
 		if card.draggable:
 			highest_grabbable_z_index = max(highest_grabbable_z_index, card.z_index)

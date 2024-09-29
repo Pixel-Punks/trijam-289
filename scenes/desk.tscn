@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bontd50tna8b0"]
+[gd_scene load_steps=10 format=3 uid="uid://bontd50tna8b0"]
 
 [ext_resource type="Script" path="res://scripts/desk.gd" id="1_5r4sk"]
 [ext_resource type="Texture2D" uid="uid://dmplwmivhdgfc" path="res://assets/background/desk.png" id="2_3eq5r"]
 [ext_resource type="Texture2D" uid="uid://djbdkygmt2gx1" path="res://assets/aliens/sunflower.png" id="3_o7c3y"]
 [ext_resource type="PackedScene" uid="uid://dq1xey4c2wn0n" path="res://scenes/planet_details.tscn" id="4_27lk2"]
+[ext_resource type="AudioStream" uid="uid://ixotw2ixqmc4" path="res://assets/sounds/others/rocket-launch.wav" id="5_g2sgk"]
+[ext_resource type="AudioStream" uid="uid://bl5wt4eshpfa7" path="res://assets/sounds/others/95773__velvorn__sas_ouverture.wav" id="6_a2yw8"]
+[ext_resource type="AudioStream" uid="uid://sat7duymtrrd" path="res://assets/sounds/others/95772__velvorn__sas_fermeture.wav" id="7_q0gbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5w6h"]
 size = Vector2(1152, 264)
@@ -54,7 +57,7 @@ polygon = PackedVector2Array(-64, -64, -64, 704, 0, 704, 0, 0, 1152, 0, 1152, 64
 
 [node name="ScreenEdgeRight" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1160, 8)
+position = Vector2(1536, 0)
 
 [node name="ScreenEdgeLeft" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -65,5 +68,21 @@ unique_name_in_owner = true
 visible = false
 z_index = 100
 position = Vector2(416, 24)
+
+[node name="RocketLaunchStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_g2sgk")
+
+[node name="DoorOpenStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_a2yw8")
+
+[node name="DoorCloseStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_q0gbk")
+
+[node name="RocketLaunchEdge" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1280, 0)
 
 [connection signal="body_entered" from="DeskArea" to="." method="_on_desk_area_body_entered"]

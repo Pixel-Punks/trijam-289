@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dk3cs2pq1o7xe"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_4t6yd"]
-[ext_resource type="PackedScene" uid="uid://ddvyx1kpounl7" path="res://scenes/desk.tscn" id="2_xqpsh"]
-[ext_resource type="Texture2D" path="res://assets/background/bg.png" id="3_0e7lg"]
+[ext_resource type="PackedScene" uid="uid://bontd50tna8b0" path="res://scenes/desk.tscn" id="2_xqpsh"]
+[ext_resource type="Texture2D" uid="uid://m27oecnlhvck" path="res://assets/background/bg.png" id="3_0e7lg"]
 [ext_resource type="Script" path="res://scripts/dialog_button.gd" id="4_1apfj"]
 
 [node name="GameScreen" type="Node2D"]

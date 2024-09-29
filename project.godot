@@ -17,6 +17,7 @@ boot_splash/bg_color=Color(0.203922, 0.0235294, 0.309804, 1)
 boot_splash/image="res://assets/logo/Logo_text.png"
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
+config/windows_native_icon="res://assets/logo/cursed.ico"
 
 [autoload]
 

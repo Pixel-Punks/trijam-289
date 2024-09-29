@@ -67,7 +67,25 @@ var hmmm = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start()
+
+func start():
 	print("GM")
+	aliens = []
+	cards = []
+	planets = []
+	score = 0
+	highest_grabbable_z_index = 0
+	planet_details_shown = false
+	planet_for_details = null
+	isDragging = false
+	alien = null
+	current_traveler = 0
+	dialogManager = DialogManager.new()
+	question_left = 4
+	aliens_that_died = 0
+	is_game_over = false
+	
 	for i in range(10):
 		var alien : Alien = Alien.new()
 		var planet : Planet = Planet.new()
@@ -128,7 +146,7 @@ func compute_score(planet: Planet):
 		if (planet.air == alien.air):
 			score += 25
 			
-	if (current_traveler < 9):
+	if (current_traveler < aliens.size() - 1):
 		current_traveler += 1
 		alien = aliens[current_traveler]
 	else:

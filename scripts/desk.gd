@@ -7,6 +7,7 @@ extends Node2D
 @onready var alien_base_postition : Vector2 = alien_area.position
 @onready var min_pos : Vector2 = %ScreenEdgeLeft.position
 @onready var max_pos : Vector2 = %ScreenEdgeRight.position
+@onready var planet_details : PlanetDetails = %PlanetDetails
 
 @export var alien_speed : float = 100
 
@@ -38,6 +39,12 @@ func get_collision_rect(collision : CollisionShape2D) -> Rect2:
 	return collision.shape.get_rect()
 
 func _physics_process(delta: float) -> void:
+	if GManager.planet_details_shown :
+		planet_details.planet = GManager.planet_for_details.planet
+		if Input.is_action_just_pressed("left_click"):
+			GManager.planet_for_details = null
+			GManager.planet_details_shown = false
+	planet_details.visible = GManager.planet_for_details != null
 	handle_alien_cycling(delta)
 	handle_card_drop()
 

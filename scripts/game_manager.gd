@@ -1,8 +1,10 @@
 class_name GameManager extends Node
 
-@export var max_bad_conditions = 3
+@export var max_bad_conditions = 1
 var highest_grabbable_z_index = 0
-var isDragging: bool = false
+var planet_details_shown : bool = false
+var planet_for_details : Card
+var isDragging : bool = false
 var cardScene : PackedScene = preload("res://scenes/card.tscn")
 var aliens : Array[Alien] = []
 var cards : Array[Card] = []

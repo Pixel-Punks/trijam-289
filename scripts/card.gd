@@ -27,10 +27,16 @@ func _on_mouse_exit() -> void :
 	draggable = false
 	
 func _handle_click() -> void :
-	if Input.is_action_just_pressed("left_click") && draggable && !GManager.isDragging && GManager.highest_grabbable_z_index <= z_index:
-		GManager.move_card_on_top(z_index)
-		being_dragged = true
-		GManager.isDragging = true
+	if GManager.planet_details_shown:
+		return
+	elif draggable && !GManager.isDragging && GManager.highest_grabbable_z_index <= z_index:
+		if Input.is_action_just_pressed("left_click"):
+			GManager.move_card_on_top(z_index)
+			being_dragged = true
+			GManager.isDragging = true
+		elif Input.is_action_just_pressed("right_click"):
+			GManager.planet_details_shown = true
+			GManager.planet_for_details = self as Card
 	elif !Input.is_action_pressed("left_click") && being_dragged:
 		being_dragged = false
 		GManager.isDragging = false

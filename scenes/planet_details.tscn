@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq1xey4c2wn0n"]
+
+[ext_resource type="Texture2D" uid="uid://cqjqo0strcyy8" path="res://assets/flyers/flyer_zoom_1.png" id="1_lwe1a"]
+[ext_resource type="Script" path="res://scripts/planet_details.gd" id="1_vds5a"]
+[ext_resource type="Texture2D" uid="uid://svyiaiu4dbnj" path="res://assets/flyers/flyer_clean.png" id="3_q4yay"]
+
+[node name="PlanetDetails" type="Node2D"]
+position = Vector2(0, 1)
+scale = Vector2(1.26786, 1.26786)
+script = ExtResource("1_vds5a")
+
+[node name="AirLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 346.0
+offset_right = 72.0
+offset_bottom = 369.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Air"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(89.9999, 95.9999)
+scale = Vector2(0.167969, 0.167969)
+texture = ExtResource("1_lwe1a")
+
+[node name="ClimateLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 153.0
+offset_right = 72.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Climate"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(133, 232)
+scale = Vector2(0.503906, 0.467773)
+texture = ExtResource("3_q4yay")
+
+[node name="AtmosphereLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 184.0
+offset_right = 104.0
+offset_bottom = 207.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Atmoshpere"
+metadata/_edit_use_anchors_ = true
+
+[node name="RadiationLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 216.0
+offset_right = 82.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Radiation"
+metadata/_edit_use_anchors_ = true
+
+[node name="AcidWaterLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 252.0
+offset_right = 88.0
+offset_bottom = 275.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "AcidWater"
+metadata/_edit_use_anchors_ = true
+
+[node name="EternalWarLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 286.0
+offset_right = 95.0
+offset_bottom = 309.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "EternalWar"
+metadata/_edit_use_anchors_ = true
+
+[node name="FoodLabel" type="Label" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 8.0
+offset_top = 318.0
+offset_right = 72.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Food"
+metadata/_edit_use_anchors_ = true

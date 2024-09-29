@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bontd50tna8b0"]
+[gd_scene load_steps=7 format=3 uid="uid://bontd50tna8b0"]
 
 [ext_resource type="Script" path="res://scripts/desk.gd" id="1_5r4sk"]
 [ext_resource type="Texture2D" uid="uid://dmplwmivhdgfc" path="res://assets/background/desk.png" id="2_3eq5r"]
 [ext_resource type="Texture2D" uid="uid://djbdkygmt2gx1" path="res://assets/aliens/sunflower.png" id="3_o7c3y"]
+[ext_resource type="PackedScene" uid="uid://dq1xey4c2wn0n" path="res://scenes/planet_details.tscn" id="4_27lk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5w6h"]
 size = Vector2(1152, 264)
@@ -58,5 +59,11 @@ position = Vector2(1160, 8)
 [node name="ScreenEdgeLeft" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-384, 8)
+
+[node name="PlanetDetails" parent="." instance=ExtResource("4_27lk2")]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+position = Vector2(416, 24)
 
 [connection signal="body_entered" from="DeskArea" to="." method="_on_desk_area_body_entered"]

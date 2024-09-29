@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dis0i5ug1cyqs"]
+[gd_scene load_steps=5 format=3 uid="uid://dis0i5ug1cyqs"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_hccig"]
 [ext_resource type="Texture2D" uid="uid://dl1takffiemlt" path="res://assets/background/game_over.png" id="2_pex6d"]
-[ext_resource type="AudioStream" uid="uid://c4fqaaxbqtn4n" path="res://assets/music/Trijam_289_OST_double_ration_de_spacing.wav" id="4_5fyqm"]
+[ext_resource type="AudioStream" uid="uid://c35gwwgul5aq1" path="res://assets/sounds/others/loose.wav" id="3_jfcq3"]
+[ext_resource type="AudioStream" uid="uid://d0bhahbupfbt8" path="res://assets/sounds/others/win.wav" id="4_wxxe5"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_hccig")
@@ -19,10 +20,6 @@ offset_top = 417.0
 offset_right = 1047.0
 offset_bottom = 516.0
 text = "RESTART"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_5fyqm")
-autoplay = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 690.0
@@ -56,5 +53,13 @@ offset_right = 1046.0
 offset_bottom = 223.0
 theme_override_font_sizes/font_size = 50
 text = "XXXX"
+
+[node name="loose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jfcq3")
+volume_db = -6.5
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wxxe5")
+volume_db = -6.5
 
 [connection signal="pressed" from="START" to="." method="_on_start_pressed"]

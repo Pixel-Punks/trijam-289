@@ -6,8 +6,10 @@ func _ready() -> void:
 	$lblscore.text = str(GManager.score)
 	if (GManager.aliens_that_died >= 5):
 		$lblfired.text = "FIRED"
+		$loose.play()
 	else:
 		$lblfired.text = "FIREN'T"
+		$win.play()
 	pass # Replace with function body.
 
 

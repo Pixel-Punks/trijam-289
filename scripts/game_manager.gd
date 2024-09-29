@@ -24,7 +24,6 @@ func _ready():
 		var card : Card = cardScene.instantiate()
 		card.planet = planet
 		aliens.append(alien)
-<<<<<<< HEAD
 		planets.append(planet)
 		cards.append(card)
 	

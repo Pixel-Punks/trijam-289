@@ -17,6 +17,7 @@ var alien_text: Label
 var question_left = 4
 var question_buttons: Array[Button]
 var audio: AudioStreamPlayer
+var aliens_that_died = 0
 var is_game_over = false
 var blblbls = [
 	preload("res://assets/sounds/blblbl/blblbl1.wav"),
@@ -109,6 +110,7 @@ func compute_score(planet: Planet):
 	
 	if (bad_conditions > max_bad_conditions):
 		score -= 75
+		aliens_that_died += 1
 		print_debug("Alien died")
 	else:
 		score += 50

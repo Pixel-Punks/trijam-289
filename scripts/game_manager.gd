@@ -13,6 +13,7 @@ var current_traveler: int = 0
 var dialogManager = DialogManager.new()
 var alien_text: Label
 var question_left = 4
+var question_buttons: Array[Button]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +24,6 @@ func _ready():
 		var card : Card = cardScene.instantiate()
 		card.planet = planet
 		aliens.append(alien)
-<<<<<<< HEAD
 		planets.append(planet)
 		cards.append(card)
 	
@@ -66,7 +66,11 @@ func compute_score(planet: Planet):
 	if (!aliens.is_empty()):
 		current_traveler += 1
 		alien = aliens[current_traveler]
-
+	
+	alien_text.text = "Hello"
+	question_left = 4
+	for button in question_buttons:
+		button.disabled = false
 	print_debug("Cycled to next alien")
 
 

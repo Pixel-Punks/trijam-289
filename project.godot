@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GManager="*res://scripts/game_manager.gd"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
 [input]
 
 left_click={

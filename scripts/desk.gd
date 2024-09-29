@@ -7,11 +7,16 @@ extends Node2D
 @onready var alien_base_postition : Vector2 = alien_area.position
 @onready var min_pos : Vector2 = %ScreenEdgeLeft.position
 @onready var max_pos : Vector2 = %ScreenEdgeRight.position
+@onready var rocket_pos : Vector2 = %RocketLaunchEdge.position
 @onready var planet_details : PlanetDetails = %PlanetDetails
+@onready var rocket_launch_sound : AudioStreamPlayer = %RocketLaunchStreamPlayer
+@onready var door_open_sound : AudioStreamPlayer = %DoorOpenStreamPlayer
+@onready var door_close_sound : AudioStreamPlayer = %DoorCloseStreamPlayer
 
 @export var alien_speed : float = 100
 
 const card_offset = 10
+var rocket_launch_played : bool = false
 var card_in_area : Card = null
 var oob_card : Card = null
 var card_return_position : Vector2
@@ -91,7 +96,13 @@ func handle_alien_cycling(delta : float) -> void :
 	if enter_room && alien_area.position[0] > alien_base_postition[0]:
 		enter_room = false
 		alien_area.position[0] = alien_base_postition[0]
+	if !rocket_launch_played && exit_room && alien_area.position[0] > rocket_pos[0]:
+		rocket_launch_played = true
+		rocket_launch_sound.play()
 	if exit_room && alien_area.position[0] > max_pos[0]: 
 		exit_room = false
 		enter_room = true
+		rocket_launch_played = false
+		door_open_sound.play()
+		door_close_sound.play()
 		alien_area.position[0] = min_pos[0]
